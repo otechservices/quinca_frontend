@@ -152,7 +152,7 @@ import { POSCartItem, PaymentMethod } from '../../../core/models/sale.model';
               styleClass="w-full"
               size="large"
               [disabled]="cartItems().length === 0"
-              (onClick)="showPaymentDialog = true">
+              (onClick)="showPaymentDialog.set(true)">
             </p-button>
           </div>
         </div>
@@ -184,9 +184,9 @@ import { POSCartItem, PaymentMethod } from '../../../core/models/sale.model';
                     styleClass="w-full">
                   </p-inputNumber>
                 </div>
-                <div *ngIf="cashReceived > cartTotal()" class="p-3 bg-green-50 rounded-lg">
+                <div *ngIf="cashReceived() > cartTotal()" class="p-3 bg-green-50 rounded-lg">
                   <p class="text-green-800">
-                    <strong>Monnaie à rendre: {{ (cashReceived - cartTotal()) | currency:'XOF':'symbol':'1.0-0' }}</strong>
+                    <strong>Monnaie à rendre: {{ (cashReceived() - cartTotal()) | currency:'XOF':'symbol':'1.0-0' }}</strong>
                   </p>
                 </div>
               </div>
@@ -210,7 +210,7 @@ import { POSCartItem, PaymentMethod } from '../../../core/models/sale.model';
               label="Annuler" 
               [text]="true" 
               styleClass="flex-1"
-              (onClick)="showPaymentDialog = false">
+              (onClick)="showPaymentDialog.set(false)">
             </p-button>
             <p-button 
               label="Finaliser la vente" 
