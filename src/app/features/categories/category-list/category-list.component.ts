@@ -68,8 +68,8 @@ import { Category } from '../../../core/models/product.model';
             <h3 class="text-lg font-semibold mb-4">Détails de la catégorie</h3>
             <div *ngIf="selectedCategory; else noCategorySelected" class="space-y-4">
               <div class="p-4 border border-surface-200 rounded-lg">
-                <h4 class="font-medium text-lg">{{ selectedCategory.label }}</h4>
-                <p class="text-sm text-surface-600 mt-1">{{ selectedCategory.data?.description || 'Aucune description' }}</p>
+                <h4 class="font-medium text-lg">{{ selectedCategory?.label }}</h4>
+                <p class="text-sm text-surface-600 mt-1">{{ selectedCategory?.data?.description || 'Aucune description' }}</p>
                 <div class="flex gap-2 mt-3">
                   <p-button label="Modifier" icon="pi pi-pencil" size="small"></p-button>
                   <p-button label="Supprimer" icon="pi pi-trash" severity="danger" size="small"></p-button>
