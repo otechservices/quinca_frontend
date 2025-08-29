@@ -409,16 +409,24 @@ export class ShellComponent implements OnInit {
       'dashboard': this.t('navigation.dashboard'),
       'products': this.t('navigation.products'),
       'categories': this.t('navigation.categories'),
+      'units': this.t('navigation.units'),
+      'variants': this.t('navigation.variants'),
       'suppliers': this.t('navigation.suppliers'),
       'customers': this.t('navigation.customers'),
       'purchases': this.t('navigation.purchases'),
       'sales': this.t('navigation.sales'),
       'pos': this.t('navigation.pos'),
       'inventory': this.t('navigation.inventory'),
+      'movements': this.t('navigation.movements'),
+      'transfers': this.t('navigation.transfers'),
+      'adjustments': this.t('navigation.adjustments'),
+      'counts': this.t('navigation.counts'),
       'warehouses': this.t('navigation.warehouses'),
       'returns': this.t('navigation.returns'),
+      'damages': this.t('navigation.damages'),
       'reports': this.t('navigation.reports'),
-      'settings': this.t('navigation.settings')
+      'settings': this.t('navigation.settings'),
+      'notifications': this.t('navigation.notifications')
     };
 
     return labelMap[segment] || segment;
