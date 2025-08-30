@@ -259,7 +259,6 @@ export class ShellComponent implements OnInit {
   // Signals
   sidebarVisible = signal<boolean>(false);
   searchQuery = signal<string>('');
-  expandedMenuItems = signal<Set<string>>(new Set());
 
   // Computed signals
   currentUser = computed(() => this.authService.user());
@@ -457,7 +456,7 @@ export class ShellComponent implements OnInit {
   performSearch() {
     const query = this.searchQuery();
     if (query.trim()) {
-      // Implement search functionality
+      // Implement search logic
       console.log('Searching for:', query);
     }
   }
