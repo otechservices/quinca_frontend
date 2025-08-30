@@ -259,6 +259,7 @@ export class ShellComponent implements OnInit {
   // Signals
   sidebarVisible = signal<boolean>(false);
   searchQuery = signal<string>('');
+  expandedMenuItems = signal<Set<string>>(new Set());
 
   // Computed signals
   currentUser = computed(() => this.authService.user());
@@ -344,24 +345,28 @@ export class ShellComponent implements OnInit {
           routerLink: '/variants'
         }
       ]
+  },
   {
     label: this.t('navigation.pos'),
     icon: 'pi pi-warehouse',
     routerLink: '/inventory',
     badge: '0',
       badge: null
+  },
   {
     label: this.t('navigation.warehouses'),
     icon: 'pi pi-building',
     routerLink: '/warehouses',
     badge: '0',
       badge: null
+  },
   {
     label: this.t('navigation.returns'),
     icon: 'pi pi-replay',
     routerLink: '/returns',
     badge: '0',
       badge: null
+  },
   {
     label: this.t('navigation.reports'),
     icon: 'pi pi-chart-bar',
@@ -379,10 +384,11 @@ export class ShellComponent implements OnInit {
           routerLink: '/sales/pos'
         }
       ]
+  },
   {
     label: this.t('navigation.settings'),
-
-  // Breadcrumb
+    icon: 'pi pi-cog',
+    routerLink: '/settings',
       expanded: false,
       items: [
         {
@@ -406,42 +412,53 @@ export class ShellComponent implements OnInit {
           routerLink: '/inventory/counts'
         }
       ]
+  },
+  {
+    label: this.t('navigation.damages'),
+    icon: 'pi pi-exclamation-triangle',
+    routerLink: '/damages',
+    badge: null
+  },
+  {
+    label: this.t('navigation.notifications'),
+    icon: 'pi pi-bell',
+    routerLink: '/notifications',
+    badge: '3'
+  }
+ ]);
+
+  // Breadcrumb
+  breadcrumbItems: MenuItem[] = [];
+  homeItem: MenuItem = { icon: 'pi pi-home', routerLink: '/' };
+
   ngOnInit() {
     this.updateBreadcrumb();
     
     // Listen to route changes to update breadcrumb
     this.router.events.subscribe(() => {
-      badge: null
+      this.updateBreadcrumb();
+    });
   }
 
   toggleSidebar() {
     this.sidebarVisible.update(visible => !visible);
   }
-      badge: null
-    },
-    {
-      label: this.t('navigation.damages'),
-      icon: 'pi pi-exclamation-triangle',
-      routerLink: '/damages',
-      badge: null
+
+  toggleTheme() {
     this.themeService.toggleTheme();
   }
 
   toggleLanguage() {
     const currentLang = this.currentLanguage();
-      badge: null
+    const newLang = currentLang === 'en' ? 'fr' : 'en';
+    this.translationService.setLanguage(newLang);
   }
 
   performSearch() {
     const query = this.searchQuery();
     if (query.trim()) {
-      badge: null
-    },
-    {
-      label: this.t('navigation.notifications'),
-      icon: 'pi pi-bell',
-      routerLink: '/notifications',
-      badge: '3'
+      // Implement search functionality
+      console.log('Searching for:', query);
     }
   }
 
@@ -453,14 +470,8 @@ export class ShellComponent implements OnInit {
     this.authService.logout();
   }
 
-  toggleSubmenu(itemLabel: string) {
-    const expanded = this.expandedMenuItems();
-    if (expanded.has(itemLabel)) {
-      expanded.delete(itemLabel);
-    } else {
-      expanded.add(itemLabel);
-    }
-    this.expandedMenuItems.set(new Set(expanded));
+  toggleSubmenu(item: any) {
+    item.expanded = !item.expanded;
   }
 
   isMenuExpanded(itemLabel: string): boolean {
