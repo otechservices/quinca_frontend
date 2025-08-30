@@ -45,7 +45,7 @@ import { LoadingService } from '../../core/services/loading.service';
           <!-- Left side: Menu toggle + Logo + Search -->
           <div class="flex items-center gap-4">
             <p-button 
-              icon="pi pi-bars" 
+              icon="fas fa-bars" 
               [text]="true" 
               [rounded]="true"
               (onClick)="toggleSidebar()"
@@ -53,14 +53,14 @@ import { LoadingService } from '../../core/services/loading.service';
             </p-button>
             
             <div class="flex items-center gap-2">
-              <i class="pi pi-box text-2xl text-primary-500"></i>
+              <i class="fas fa-cube text-2xl text-primary-500"></i>
               <span class="text-xl font-bold text-surface-900 dark:text-surface-0">QuincaStock</span>
             </div>
 
             <!-- Global Search -->
             <div class="hidden md:block">
               <span class="p-input-icon-left">
-                <i class="pi pi-search"></i>
+                <i class="fas fa-search"></i>
                 <input 
                   type="text" 
                   pInputText 
@@ -79,7 +79,7 @@ import { LoadingService } from '../../core/services/loading.service';
 
             <!-- Notifications -->
             <p-button 
-              icon="pi pi-bell" 
+              icon="fas fa-bell" 
               [text]="true" 
               [rounded]="true"
               [badge]="'3'"
@@ -96,7 +96,7 @@ import { LoadingService } from '../../core/services/loading.service';
 
             <!-- Theme switcher -->
             <p-button 
-              [icon]="isDarkMode() ? 'pi pi-sun' : 'pi pi-moon'" 
+              [icon]="isDarkMode() ? 'fas fa-sun' : 'fas fa-moon'" 
               [text]="true" 
               [rounded]="true"
               (onClick)="toggleTheme()">
@@ -125,20 +125,20 @@ import { LoadingService } from '../../core/services/loading.service';
                 <div class="flex flex-col gap-2">
                   <p-button 
                     label="Profile" 
-                    icon="pi pi-user" 
+                    icon="fas fa-user" 
                     [text]="true" 
                     class="justify-start">
                   </p-button>
                   <p-button 
                     label="Settings" 
-                    icon="pi pi-cog" 
+                    icon="fas fa-cog" 
                     [text]="true" 
                     class="justify-start"
                     (onClick)="navigateTo('/settings')">
                   </p-button>
                   <p-button 
                     [label]="t('auth.logout')" 
-                    icon="pi pi-sign-out" 
+                    icon="fas fa-sign-out-alt" 
                     [text]="true" 
                     class="justify-start"
                     (onClick)="logout()">
@@ -174,7 +174,7 @@ import { LoadingService } from '../../core/services/loading.service';
                       class="w-full flex items-center gap-3 px-3 py-2 rounded-l-lg text-surface-700 dark:text-surface-200 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors">
                       <i [class]="item.icon" class="text-lg"></i>
                       <span class="flex-1 text-left">{{item.label}}</span>
-                      <i [class]="item.expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'" class="text-sm"></i>
+                      <i [class]="item.expanded ? 'fas fa-chevron-down' : 'fas fa-chevron-right'" class="text-sm"></i>
                     </button>
                     <!-- Submenu -->
                     <ul *ngIf="item.expanded" class="ml-6 mt-1 space-y-1">
@@ -315,39 +315,39 @@ export class ShellComponent implements OnInit {
     icon: 'pi pi-shopping-cart',
     routerLink: '/purchases',
     badge: '0',
-    badgeStyleClass: 'bg-gray-500 text-white'
+      icon: 'fas fa-home',
   },
   {
     label: this.t('navigation.sales'),
     icon: 'pi pi-dollar',
-    routerLink: '/sales',
+      icon: 'fas fa-cube',
       expanded: false,
       items: [
         {
           label: this.t('navigation.products'),
-          icon: 'pi pi-list',
+          icon: 'fas fa-list',
           routerLink: '/products'
         },
         {
           label: this.t('navigation.categories'),
-          icon: 'pi pi-tags',
+          icon: 'fas fa-tags',
           routerLink: '/categories'
         },
         {
           label: this.t('navigation.units'),
-          icon: 'pi pi-calculator',
+          icon: 'fas fa-calculator',
           routerLink: '/units'
         },
         {
           label: this.t('navigation.variants'),
-          icon: 'pi pi-clone',
+          icon: 'fas fa-clone',
           routerLink: '/variants'
         }
       ]
   },
   {
     label: this.t('navigation.pos'),
-    icon: 'pi pi-warehouse',
+      icon: 'fas fa-truck',
     routerLink: '/inventory',
     badge: '0',
       badge: null
@@ -359,68 +359,68 @@ export class ShellComponent implements OnInit {
     badge: '0',
       badge: null
   },
-  {
+      icon: 'fas fa-users',
     label: this.t('navigation.returns'),
     icon: 'pi pi-replay',
     routerLink: '/returns',
     badge: '0',
-      badge: null
+      icon: 'fas fa-shopping-cart',
   },
   {
     label: this.t('navigation.reports'),
     icon: 'pi pi-chart-bar',
-    routerLink: '/reports',
+      icon: 'fas fa-dollar-sign',
       expanded: false,
       items: [
         {
           label: this.t('navigation.sales'),
-          icon: 'pi pi-list',
+          icon: 'fas fa-list',
           routerLink: '/sales'
         },
         {
           label: this.t('navigation.pos'),
-          icon: 'pi pi-calculator',
+          icon: 'fas fa-cash-register',
           routerLink: '/sales/pos'
         }
       ]
   },
   {
     label: this.t('navigation.settings'),
-    icon: 'pi pi-cog',
+      icon: 'fas fa-warehouse',
     routerLink: '/settings',
       expanded: false,
       items: [
         {
           label: this.t('navigation.movements'),
-          icon: 'pi pi-arrow-right-arrow-left',
+          icon: 'fas fa-exchange-alt',
           routerLink: '/inventory/movements'
         },
         {
           label: this.t('navigation.transfers'),
-          icon: 'pi pi-send',
+          icon: 'fas fa-paper-plane',
           routerLink: '/inventory/transfers'
         },
-        {
+      icon: 'fas fa-undo',
           label: this.t('navigation.adjustments'),
-          icon: 'pi pi-wrench',
+          icon: 'fas fa-wrench',
           routerLink: '/inventory/adjustments'
         },
-        {
+      icon: 'fas fa-exclamation-triangle',
           label: this.t('navigation.counts'),
-          icon: 'pi pi-list-check',
+          icon: 'fas fa-clipboard-check',
           routerLink: '/inventory/counts'
         }
-      ]
+      icon: 'fas fa-chart-bar',
   },
   {
     label: this.t('navigation.damages'),
-    icon: 'pi pi-exclamation-triangle',
-    routerLink: '/damages',
+      icon: 'fas fa-building',
+      icon: 'fas fa-cog',
     badge: null
   },
   {
     label: this.t('navigation.notifications'),
-    icon: 'pi pi-bell',
+      icon: 'fas fa-bell',
     routerLink: '/notifications',
     badge: '3'
   }
@@ -428,7 +428,7 @@ export class ShellComponent implements OnInit {
 
   // Breadcrumb
   breadcrumbItems: MenuItem[] = [];
-  homeItem: MenuItem = { icon: 'pi pi-home', routerLink: '/' };
+  homeItem: MenuItem = { icon: 'fas fa-home', routerLink: '/' };
 
   ngOnInit() {
     this.updateBreadcrumb();

@@ -50,7 +50,7 @@ import { Product, MOCK_CATEGORIES, MOCK_BRANDS } from '../../../core/models/prod
         </div>
         <p-button 
           label="Nouveau produit" 
-          icon="pi pi-plus" 
+          icon="fas fa-plus" 
           routerLink="/products/new">
         </p-button>
       </div>
@@ -61,7 +61,7 @@ import { Product, MOCK_CATEGORIES, MOCK_BRANDS } from '../../../core/models/prod
           <div>
             <label class="block text-sm font-medium mb-2">Recherche</label>
             <span class="p-input-icon-left w-full">
-              <i class="pi pi-search"></i>
+              <i class="fas fa-search"></i>
               <input 
                 type="text" 
                 pInputText 
@@ -163,7 +163,7 @@ import { Product, MOCK_CATEGORIES, MOCK_BRANDS } from '../../../core/models/prod
               <td>
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
-                    <i class="pi pi-box text-gray-500"></i>
+                    <i class="fas fa-cube text-gray-500"></i>
                   </div>
                   <div>
                     <div class="font-medium">{{ product.name }}</div>
@@ -191,7 +191,7 @@ import { Product, MOCK_CATEGORIES, MOCK_BRANDS } from '../../../core/models/prod
                   </p-badge>
                   <i 
                     *ngIf="product.stock <= product.reorderThreshold"
-                    class="pi pi-exclamation-triangle text-red-500"
+                    class="fas fa-exclamation-triangle text-red-500"
                     pTooltip="Stock faible">
                   </i>
                 </div>
@@ -205,21 +205,21 @@ import { Product, MOCK_CATEGORIES, MOCK_BRANDS } from '../../../core/models/prod
               <td>
                 <div class="flex gap-1">
                   <p-button 
-                    icon="pi pi-eye" 
+                    icon="fas fa-eye" 
                     [text]="true" 
                     size="small"
                     [routerLink]="['/products', product.id]"
                     pTooltip="Voir">
                   </p-button>
                   <p-button 
-                    icon="pi pi-pencil" 
+                    icon="fas fa-edit" 
                     [text]="true" 
                     size="small"
                     [routerLink]="['/products', product.id, 'edit']"
                     pTooltip="Modifier">
                   </p-button>
                   <p-button 
-                    icon="pi pi-trash" 
+                    icon="fas fa-trash" 
                     [text]="true" 
                     size="small"
                     severity="danger"
@@ -235,7 +235,7 @@ import { Product, MOCK_CATEGORIES, MOCK_BRANDS } from '../../../core/models/prod
             <tr>
               <td colspan="9" class="text-center py-8">
                 <div class="text-gray-500">
-                  <i class="pi pi-inbox text-4xl mb-4"></i>
+                  <i class="fas fa-inbox text-4xl mb-4"></i>
                   <p>Aucun produit trouvé</p>
                   <p class="text-sm">Ajoutez votre premier produit pour commencer</p>
                 </div>

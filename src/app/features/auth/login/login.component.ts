@@ -150,7 +150,7 @@ import { ThemeService } from '../../../core/services/theme.service';
             (onClick)="toggleLanguage()">
           </p-button>
           <p-button 
-            [icon]="isDarkMode() ? 'pi pi-sun' : 'pi pi-moon'" 
+            [icon]="isDarkMode() ? 'fas fa-sun' : 'fas fa-moon'" 
             [text]="true" 
             size="small"
             (onClick)="toggleTheme()">

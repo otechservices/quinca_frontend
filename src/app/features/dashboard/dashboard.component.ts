@@ -44,8 +44,8 @@ interface TopProduct {
           {{ t('dashboard.title') }}
         </h1>
         <div class="flex space-x-2">
-          <button pButton label="Exporter" icon="pi pi-download" class="p-button-outlined"></button>
-          <button pButton label="Actualiser" icon="pi pi-refresh" (click)="refreshData()"></button>
+          <button pButton label="Exporter" icon="fas fa-download" class="p-button-outlined"></button>
+          <button pButton label="Actualiser" icon="fas fa-sync-alt" (click)="refreshData()"></button>
         </div>
       </div>
 
@@ -68,7 +68,7 @@ interface TopProduct {
                     {{ kpi.value }}
                   </div>
                   <div [class]="'ml-2 flex items-baseline text-sm font-semibold ' + (kpi.change >= 0 ? 'text-green-600' : 'text-red-600')">
-                    <i [class]="kpi.change >= 0 ? 'pi pi-arrow-up' : 'pi pi-arrow-down'"></i>
+                    <i [class]="kpi.change >= 0 ? 'fas fa-arrow-up' : 'fas fa-arrow-down'"></i>
                     <span class="ml-1">{{ Math.abs(kpi.change) }}%</span>
                   </div>
                 </dd>
@@ -125,17 +125,17 @@ interface TopProduct {
           <div class="space-y-3">
             <div *ngFor="let alert of lowStockAlerts()" class="flex items-center justify-between p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
               <div class="flex items-center">
-                <i class="pi pi-exclamation-triangle text-red-500 mr-3"></i>
+                <i class="fas fa-exclamation-triangle text-red-500 mr-3"></i>
                 <div>
                   <p class="font-medium text-gray-900 dark:text-white">{{ alert.product }}</p>
                   <p class="text-sm text-gray-500 dark:text-gray-400">Stock: {{ alert.stock }} / Seuil: {{ alert.threshold }}</p>
                 </div>
               </div>
-              <button pButton icon="pi pi-shopping-cart" class="p-button-sm p-button-outlined" 
+              <button pButton icon="fas fa-shopping-cart" class="p-button-sm p-button-outlined" 
                       pTooltip="Commander"></button>
             </div>
             <div *ngIf="lowStockAlerts().length === 0" class="text-center py-4 text-gray-500 dark:text-gray-400">
-              <i class="pi pi-check-circle text-green-500 text-2xl mb-2"></i>
+              <i class="fas fa-check-circle text-green-500 text-2xl mb-2"></i>
               <p>Aucune alerte de stock</p>
             </div>
           </div>
@@ -218,28 +218,28 @@ export class DashboardComponent implements OnInit {
         title: this.t('dashboard.totalStock'),
         value: '2,450,000 XOF',
         change: 12.5,
-        icon: 'pi pi-database',
+        icon: 'fas fa-database',
         color: 'bg-blue-500'
       },
       {
         title: this.t('dashboard.dailySales'),
         value: '185,000 XOF',
         change: 8.2,
-        icon: 'pi pi-money-bill',
+        icon: 'fas fa-money-bill-wave',
         color: 'bg-green-500'
       },
       {
         title: this.t('dashboard.grossMargin'),
         value: '32.5%',
         change: -2.1,
-        icon: 'pi pi-chart-line',
+        icon: 'fas fa-chart-line',
         color: 'bg-purple-500'
       },
       {
         title: this.t('dashboard.lowStock'),
         value: '12',
         change: -15.3,
-        icon: 'pi pi-exclamation-triangle',
+        icon: 'fas fa-exclamation-triangle',
         color: 'bg-red-500'
       }
     ]);
@@ -263,21 +263,21 @@ export class DashboardComponent implements OnInit {
         title: 'Nouvelle vente',
         description: 'Vente #SO-2024-0156 - 125,000 XOF',
         time: 'Il y a 5 min',
-        icon: 'pi pi-shopping-cart',
+        icon: 'fas fa-shopping-cart',
         color: 'bg-green-500'
       },
       {
         title: 'Stock faible',
         description: 'Vis Inox 6x40 - Stock critique',
         time: 'Il y a 15 min',
-        icon: 'pi pi-exclamation-triangle',
+        icon: 'fas fa-exclamation-triangle',
         color: 'bg-red-500'
       },
       {
         title: 'Réception marchandise',
         description: 'Bon de réception #GR-2024-0089',
         time: 'Il y a 1h',
-        icon: 'pi pi-truck',
+        icon: 'fas fa-truck',
         color: 'bg-blue-500'
       }
     ]);

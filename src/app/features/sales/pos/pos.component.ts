@@ -52,7 +52,7 @@ import { POSCartItem, PaymentMethod } from '../../../core/models/sale.model';
           <!-- Search -->
           <div class="mb-4">
             <span class="p-input-icon-left w-full">
-              <i class="pi pi-search"></i>
+              <i class="fas fa-search"></i>
               <input 
                 type="text" 
                 pInputText 
@@ -72,7 +72,7 @@ import { POSCartItem, PaymentMethod } from '../../../core/models/sale.model';
                 (click)="addToCart(product)">
                 <div class="text-center">
                   <div class="w-16 h-16 bg-surface-100 dark:bg-surface-700 rounded-lg flex items-center justify-center mx-auto mb-3">
-                    <i class="pi pi-box text-2xl text-surface-500"></i>
+                    <i class="fas fa-cube text-2xl text-surface-500"></i>
                   </div>
                   <h3 class="font-medium text-sm mb-1 line-clamp-2">{{ product.name }}</h3>
                   <p class="text-xs text-surface-500 mb-2">{{ product.code }}</p>
@@ -99,7 +99,7 @@ import { POSCartItem, PaymentMethod } from '../../../core/models/sale.model';
                 *ngFor="let item of cartItems()" 
                 class="flex items-center gap-3 p-3 bg-surface-50 dark:bg-surface-800 rounded-lg">
                 <div class="w-10 h-10 bg-surface-200 dark:bg-surface-700 rounded flex items-center justify-center">
-                  <i class="pi pi-box text-surface-500"></i>
+                  <i class="fas fa-cube text-surface-500"></i>
                 </div>
                 <div class="flex-1 min-w-0">
                   <p class="font-medium text-sm truncate">{{ item.product?.name }}</p>
@@ -107,21 +107,21 @@ import { POSCartItem, PaymentMethod } from '../../../core/models/sale.model';
                 </div>
                 <div class="flex items-center gap-2">
                   <p-button 
-                    icon="pi pi-minus" 
+                    icon="fas fa-minus" 
                     [text]="true" 
                     size="small"
                     (onClick)="decreaseQuantity(item)">
                   </p-button>
                   <span class="w-8 text-center">{{ item.quantity }}</span>
                   <p-button 
-                    icon="pi pi-plus" 
+                    icon="fas fa-plus" 
                     [text]="true" 
                     size="small"
                     (onClick)="increaseQuantity(item)">
                   </p-button>
                 </div>
                 <p-button 
-                  icon="pi pi-trash" 
+                  icon="fas fa-trash" 
                   [text]="true" 
                   size="small" 
                   severity="danger"
@@ -148,7 +148,7 @@ import { POSCartItem, PaymentMethod } from '../../../core/models/sale.model';
             
             <p-button 
               label="Paiement" 
-              icon="pi pi-credit-card"
+              icon="fas fa-credit-card"
               styleClass="w-full"
               size="large"
               [disabled]="cartItems().length === 0"
@@ -193,13 +193,13 @@ import { POSCartItem, PaymentMethod } from '../../../core/models/sale.model';
             </p-tabPanel>
             <p-tabPanel header="Carte">
               <div class="text-center py-4">
-                <i class="pi pi-credit-card text-4xl text-surface-400 mb-2"></i>
+                <i class="fas fa-credit-card text-4xl text-surface-400 mb-2"></i>
                 <p>Paiement par carte bancaire</p>
               </div>
             </p-tabPanel>
             <p-tabPanel header="Mobile Money">
               <div class="text-center py-4">
-                <i class="pi pi-mobile text-4xl text-surface-400 mb-2"></i>
+                <i class="fas fa-mobile-alt text-4xl text-surface-400 mb-2"></i>
                 <p>Paiement Mobile Money</p>
               </div>
             </p-tabPanel>
