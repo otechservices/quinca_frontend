@@ -206,7 +206,7 @@ import { ProductVariant } from '../../../core/models/product.model';
             <div>
               <label class="block text-sm font-medium mb-2">Prix de vente HT</label>
               <p-inputNumber 
-                [(ngModel)]="newVariant.salePriceHT"
+                [(ngModel)]="newVariant().salePriceHT"
                 mode="currency" 
                 currency="XOF"
                 locale="fr-FR"
@@ -219,7 +219,7 @@ import { ProductVariant } from '../../../core/models/product.model';
             <input 
               type="text" 
               pInputText 
-              [(ngModel)]="newVariant.barcode"
+              [(ngModel)]="newVariant().barcode"
               placeholder="Code-barres spécifique à cette variante"
               class="w-full">
           </div>
