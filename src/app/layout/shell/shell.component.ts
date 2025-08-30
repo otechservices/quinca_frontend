@@ -474,10 +474,6 @@ export class ShellComponent implements OnInit {
     item.expanded = !item.expanded;
   }
 
-  isMenuExpanded(itemLabel: string): boolean {
-    return this.expandedMenuItems().has(itemLabel);
-  }
-
   t(key: string): string {
     return this.translationService.t(key);
   }
