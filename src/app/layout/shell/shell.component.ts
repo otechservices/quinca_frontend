@@ -167,19 +167,45 @@ import { LoadingService } from '../../core/services/loading.service';
             <nav class="flex-1 p-4">
               <ul class="space-y-1">
                 <li *ngFor="let item of menuItems()">
-                  <a 
-                    [routerLink]="item.routerLink"
-                    routerLinkActive="bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 border-r-2 border-primary-500"
-                    class="flex items-center gap-3 px-3 py-2 rounded-l-lg text-surface-700 dark:text-surface-200 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors">
-                    <i [class]="item.icon" class="text-lg"></i>
-                    <span>{{item.label}}</span>
-                    <p-badge 
-                      *ngIf="item.badge" 
-                      [value]="item.badge" 
-                      severity="danger" 
-                      class="ml-auto">
-                    </p-badge>
-                  </a>
+                  <!-- Menu item with submenu -->
+                  <div *ngIf="item.items; else simpleMenuItem">
+                    <button 
+                      (click)="toggleSubmenu(item)"
+                      class="w-full flex items-center gap-3 px-3 py-2 rounded-l-lg text-surface-700 dark:text-surface-200 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors">
+                      <i [class]="item.icon" class="text-lg"></i>
+                      <span class="flex-1 text-left">{{item.label}}</span>
+                      <i [class]="item.expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'" class="text-sm"></i>
+                    </button>
+                    <!-- Submenu -->
+                    <ul *ngIf="item.expanded" class="ml-6 mt-1 space-y-1">
+                      <li *ngFor="let subItem of item.items">
+                        <a 
+                          [routerLink]="subItem.routerLink"
+                          routerLinkActive="bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 border-r-2 border-primary-500"
+                          class="flex items-center gap-3 px-3 py-2 rounded-l-lg text-surface-600 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors">
+                          <i [class]="subItem.icon" class="text-base"></i>
+                          <span>{{subItem.label}}</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <!-- Simple menu item -->
+                  <ng-template #simpleMenuItem>
+                    <a 
+                      [routerLink]="item.routerLink"
+                      routerLinkActive="bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 border-r-2 border-primary-500"
+                      class="flex items-center gap-3 px-3 py-2 rounded-l-lg text-surface-700 dark:text-surface-200 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors">
+                      <i [class]="item.icon" class="text-lg"></i>
+                      <span>{{item.label}}</span>
+                      <p-badge 
+                        *ngIf="item.badge" 
+                        [value]="item.badge" 
+                        severity="danger" 
+                        class="ml-auto">
+                      </p-badge>
+                    </a>
+                  </ng-template>
                 </li>
               </ul>
             </nav>
@@ -254,8 +280,7 @@ export class ShellComponent implements OnInit {
     label: this.t('navigation.dashboard'),
     icon: 'pi pi-home',
     routerLink: '/dashboard',
-    badge: '0',
-    badgeStyleClass: 'bg-gray-500 text-white'
+      badge: null
   },
   {
     label: this.t('navigation.products'),
@@ -296,86 +321,127 @@ export class ShellComponent implements OnInit {
     label: this.t('navigation.sales'),
     icon: 'pi pi-dollar',
     routerLink: '/sales',
-    badge: '0',
-    badgeStyleClass: 'bg-gray-500 text-white'
-  },
+      expanded: false,
+      items: [
+        {
+          label: this.t('navigation.products'),
+          icon: 'pi pi-list',
+          routerLink: '/products'
+        },
+        {
+          label: this.t('navigation.categories'),
+          icon: 'pi pi-tags',
+          routerLink: '/categories'
+        },
+        {
+          label: this.t('navigation.units'),
+          icon: 'pi pi-calculator',
+          routerLink: '/units'
+        },
+        {
+          label: this.t('navigation.variants'),
+          icon: 'pi pi-clone',
+          routerLink: '/variants'
+        }
+      ]
   {
     label: this.t('navigation.pos'),
-    icon: 'pi pi-calculator',
-    routerLink: '/sales/pos',
-    badge: '0',
-    badgeStyleClass: 'bg-gray-500 text-white'
-  },
-  {
-    label: this.t('navigation.inventory'),
     icon: 'pi pi-warehouse',
     routerLink: '/inventory',
     badge: '0',
-    badgeStyleClass: 'bg-gray-500 text-white'
-  },
+      badge: null
   {
     label: this.t('navigation.warehouses'),
     icon: 'pi pi-building',
     routerLink: '/warehouses',
     badge: '0',
-    badgeStyleClass: 'bg-gray-500 text-white'
-  },
+      badge: null
   {
     label: this.t('navigation.returns'),
     icon: 'pi pi-replay',
     routerLink: '/returns',
     badge: '0',
-    badgeStyleClass: 'bg-gray-500 text-white'
-  },
+      badge: null
   {
     label: this.t('navigation.reports'),
     icon: 'pi pi-chart-bar',
     routerLink: '/reports',
-    badge: '0',
-    badgeStyleClass: 'bg-gray-500 text-white'
-  },
+      expanded: false,
+      items: [
+        {
+          label: this.t('navigation.sales'),
+          icon: 'pi pi-list',
+          routerLink: '/sales'
+        },
+        {
+          label: this.t('navigation.pos'),
+          icon: 'pi pi-calculator',
+          routerLink: '/sales/pos'
+        }
+      ]
   {
     label: this.t('navigation.settings'),
-    icon: 'pi pi-cog',
-    routerLink: '/settings',
-    badge: '0',
-    badgeStyleClass: 'bg-gray-500 text-white'
-  }
-]);
-
 
   // Breadcrumb
-  breadcrumbItems: MenuItem[] = [];
-  homeItem: MenuItem = { icon: 'pi pi-home', routerLink: '/dashboard' };
-
+      expanded: false,
+      items: [
+        {
+          label: this.t('navigation.movements'),
+          icon: 'pi pi-arrow-right-arrow-left',
+          routerLink: '/inventory/movements'
+        },
+        {
+          label: this.t('navigation.transfers'),
+          icon: 'pi pi-send',
+          routerLink: '/inventory/transfers'
+        },
+        {
+          label: this.t('navigation.adjustments'),
+          icon: 'pi pi-wrench',
+          routerLink: '/inventory/adjustments'
+        },
+        {
+          label: this.t('navigation.counts'),
+          icon: 'pi pi-list-check',
+          routerLink: '/inventory/counts'
+        }
+      ]
   ngOnInit() {
     this.updateBreadcrumb();
     
     // Listen to route changes to update breadcrumb
     this.router.events.subscribe(() => {
-      this.updateBreadcrumb();
-    });
+      badge: null
   }
 
   toggleSidebar() {
     this.sidebarVisible.update(visible => !visible);
   }
-
-  toggleTheme() {
+      badge: null
+    },
+    {
+      label: this.t('navigation.damages'),
+      icon: 'pi pi-exclamation-triangle',
+      routerLink: '/damages',
+      badge: null
     this.themeService.toggleTheme();
   }
 
   toggleLanguage() {
     const currentLang = this.currentLanguage();
-    const newLang = currentLang === 'fr' ? 'en' : 'fr';
-    this.translationService.setLanguage(newLang);
+      badge: null
   }
 
   performSearch() {
     const query = this.searchQuery();
     if (query.trim()) {
-      // Implement global search functionality
-      console.log('Searching for:', query);
+      badge: null
+    },
+    {
+      label: this.t('navigation.notifications'),
+      icon: 'pi pi-bell',
+      routerLink: '/notifications',
+      badge: '3'
     }
   }
 
@@ -385,6 +451,10 @@ export class ShellComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+  }
+
+  toggleSubmenu(item: any) {
+    item.expanded = !item.expanded;
   }
 
   t(key: string): string {
