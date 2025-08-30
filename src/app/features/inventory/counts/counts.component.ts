@@ -189,7 +189,7 @@ import { StockCount, CountStatus } from '../../../core/models/stock.model';
             <label class="block text-sm font-medium mb-2">Notes</label>
             <textarea 
               pInputTextarea 
-              [(ngModel)]="newCount.notes"
+              [(ngModel)]="newCount().notes"
               rows="3"
               placeholder="Notes sur cet inventaire..."
               class="w-full">
