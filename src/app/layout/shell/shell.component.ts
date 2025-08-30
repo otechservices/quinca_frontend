@@ -439,36 +439,6 @@ export class ShellComponent implements OnInit {
     });
   }
 
-  toggleSidebar() {
-    this.sidebarVisible.update(visible => !visible);
-  }
-
-  toggleTheme() {
-    this.themeService.toggleTheme();
-  }
-
-  toggleLanguage() {
-    const currentLang = this.currentLanguage();
-    const newLang = currentLang === 'en' ? 'fr' : 'en';
-    this.translationService.setLanguage(newLang);
-  }
-
-  performSearch() {
-    const query = this.searchQuery();
-    if (query.trim()) {
-      // Implement search logic
-      console.log('Searching for:', query);
-    }
-  }
-
-  navigateTo(route: string) {
-    this.router.navigate([route]);
-  }
-
-  logout() {
-    this.authService.logout();
-  }
-
   toggleSubmenu(item: any) {
     item.expanded = !item.expanded;
   }
