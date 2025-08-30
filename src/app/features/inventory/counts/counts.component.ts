@@ -169,7 +169,7 @@ import { StockCount, CountStatus } from '../../../core/models/stock.model';
           <div>
             <label class="block text-sm font-medium mb-2">Entrepôt</label>
             <p-dropdown 
-              [(ngModel)]="newCount.warehouseId()"
+              [(ngModel)]="newCount.warehouseId"
               [options]="warehouseOptions"
               placeholder="Sélectionner un entrepôt"
               optionLabel="label"
