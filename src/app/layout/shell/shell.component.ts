@@ -469,28 +469,6 @@ export class ShellComponent implements OnInit {
     this.authService.logout();
   }
 
-  performSearch() {
-    const query = this.searchQuery();
-    if (query.trim()) {
-      console.log('Searching for:', query);
-      // Implement search logic here
-    }
-  }
-
-  toggleTheme() {
-    this.themeService.toggleTheme();
-  }
-
-  toggleLanguage() {
-    const currentLang = this.currentLanguage();
-    const newLang = currentLang === 'en' ? 'fr' : 'en';
-    this.translationService.setLanguage(newLang);
-  }
-
-  navigateTo(route: string) {
-    this.router.navigate([route]);
-  }
-
   toggleSubmenu(item: any) {
     item.expanded = !item.expanded;
   }
