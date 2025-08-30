@@ -343,118 +343,118 @@ export class ShellComponent implements OnInit {
         label: this.t('navigation.products'),
         icon: 'fas fa-list',
         routerLink: '/products'
-     label: 'Produits',
+      },
       {
         label: this.t('navigation.categories'),
         icon: 'fas fa-tags',
         routerLink: '/categories'
-         label: 'Liste des produits',
+      },
       {
         label: this.t('navigation.units'),
         icon: 'fas fa-calculator',
         routerLink: '/units'
-         label: 'Catégories',
+      },
       {
         label: this.t('navigation.variants'),
         icon: 'fas fa-clone',
         routerLink: '/variants'
-         label: 'Unités',
+      }
     ]
   },
   {
     label: this.t('navigation.suppliers'),
-         label: 'Variantes',
+    icon: 'fas fa-truck',
     routerLink: '/suppliers',
     badge: null
   },
   {
     label: this.t('navigation.customers'),
     icon: 'fas fa-users',
-     label: 'Fournisseurs',
+    routerLink: '/customers',
     badge: null
   },
   {
     label: this.t('navigation.purchases'),
-     label: 'Clients',
+    icon: 'fas fa-shopping-cart',
     routerLink: '/purchases',
     badge: null
   },
   {
-     label: 'Achats',
+    label: this.t('navigation.sales'),
     icon: 'fas fa-dollar-sign',
     expanded: false,
     items: [
       {
-     label: 'Ventes',
+        label: this.t('navigation.sales'),
         icon: 'fas fa-list',
         routerLink: '/sales'
       },
       {
-         label: 'Historique des ventes',
+        label: this.t('navigation.pos'),
         icon: 'fas fa-cash-register',
         routerLink: '/sales/pos'
       }
     ]
-         label: 'Point de vente',
+  },
   {
     label: this.t('navigation.inventory'),
     icon: 'fas fa-warehouse',
     expanded: false,
     items: [
       {
-     label: 'Inventaire',
+        label: this.t('navigation.movements'),
         icon: 'fas fa-exchange-alt',
         routerLink: '/inventory/movements'
       },
       {
-         label: 'Mouvements',
+        label: this.t('navigation.transfers'),
         icon: 'fas fa-paper-plane',
         routerLink: '/inventory/transfers'
       },
       {
-         label: 'Transferts',
+        label: this.t('navigation.adjustments'),
         icon: 'fas fa-wrench',
         routerLink: '/inventory/adjustments'
       },
       {
-         label: 'Ajustements',
+        label: this.t('navigation.counts'),
         icon: 'fas fa-clipboard-check',
         routerLink: '/inventory/counts'
       }
     ]
-         label: 'Inventaires',
+  },
   {
     label: this.t('navigation.warehouses'),
     icon: 'fas fa-building',
     routerLink: '/warehouses',
     badge: null
   },
-     label: 'Entrepôts',
+  {
     label: this.t('navigation.returns'),
     icon: 'fas fa-undo',
     routerLink: '/returns',
     badge: null
-     label: 'Retours',
+  },
   {
     label: this.t('navigation.damages'),
     icon: 'fas fa-exclamation-triangle',
     routerLink: '/damages',
-     label: 'Pertes & Casse',
+    badge: null
   },
   {
     label: this.t('navigation.reports'),
     icon: 'fas fa-chart-bar',
-     label: 'Rapports',
+    routerLink: '/reports',
     badge: null
   },
   {
     label: this.t('navigation.settings'),
-     label: 'Paramètres',
+    icon: 'fas fa-cog',
     routerLink: '/settings',
     badge: null
   },
   {
-     label: 'Notifications',
+    label: this.t('navigation.notifications'),
     icon: 'fas fa-bell',
     routerLink: '/notifications',
     badge: '3'
