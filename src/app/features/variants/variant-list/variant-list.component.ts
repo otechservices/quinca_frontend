@@ -167,7 +167,7 @@ import { ProductVariant } from '../../../core/models/product.model';
           <div>
             <label class="block text-sm font-medium mb-2">Produit parent</label>
             <p-dropdown 
-              [(ngModel)]="newVariant.productId"
+              [(ngModel)]="newVariant().productId"
               [options]="productOptions"
               placeholder="Sélectionner un produit"
               optionLabel="label"
@@ -180,14 +180,14 @@ import { ProductVariant } from '../../../core/models/product.model';
             <input 
               type="text" 
               pInputText 
-              [(ngModel)]="newVariant.sku"
+              [(ngModel)]="newVariant().sku"
               placeholder="SKU unique pour cette variante"
               class="w-full">
           </div>
           <div>
             <label class="block text-sm font-medium mb-2">Attributs (couleur, taille, etc.)</label>
             <p-chips 
-              [(ngModel)]="newVariant.attributes"
+              [(ngModel)]="newVariant().attributes"
               placeholder="Ajouter un attribut (ex: Rouge, Taille M)"
               class="w-full">
             </p-chips>
