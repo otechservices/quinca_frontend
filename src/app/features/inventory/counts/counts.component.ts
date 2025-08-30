@@ -182,7 +182,7 @@ import { StockCount, CountStatus } from '../../../core/models/stock.model';
             <input 
               type="date" 
               pInputText 
-              [(ngModel)]="newCount.startDate"
+              [(ngModel)]="newCount().startDate"
               class="w-full">
           </div>
           <div>
