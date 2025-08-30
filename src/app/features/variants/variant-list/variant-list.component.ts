@@ -196,7 +196,7 @@ import { ProductVariant } from '../../../core/models/product.model';
             <div>
               <label class="block text-sm font-medium mb-2">Prix d'achat HT</label>
               <p-inputNumber 
-                [(ngModel)]="newVariant.purchasePriceHT"
+                [(ngModel)]="newVariant().purchasePriceHT"
                 mode="currency" 
                 currency="XOF"
                 locale="fr-FR"
