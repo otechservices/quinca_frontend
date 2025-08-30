@@ -278,149 +278,132 @@ export class ShellComponent implements OnInit {
  menuItems = computed(() => [
   {
     label: this.t('navigation.dashboard'),
-    icon: 'pi pi-home',
+    icon: 'fas fa-home',
     routerLink: '/dashboard',
-      badge: null
+    badge: null
   },
   {
     label: this.t('navigation.products'),
-    icon: 'pi pi-box',
-    routerLink: '/products',
-    badge: '0',
-    badgeStyleClass: 'bg-gray-500 text-white'
-  },
-  {
-    label: this.t('navigation.categories'),
-    icon: 'pi pi-tags',
-    routerLink: '/categories',
-    badge: '0',
-    badgeStyleClass: 'bg-gray-500 text-white'
+    icon: 'fas fa-cube',
+    expanded: false,
+    items: [
+      {
+        label: this.t('navigation.products'),
+        icon: 'fas fa-list',
+        routerLink: '/products'
+      },
+      {
+        label: this.t('navigation.categories'),
+        icon: 'fas fa-tags',
+        routerLink: '/categories'
+      },
+      {
+        label: this.t('navigation.units'),
+        icon: 'fas fa-calculator',
+        routerLink: '/units'
+      },
+      {
+        label: this.t('navigation.variants'),
+        icon: 'fas fa-clone',
+        routerLink: '/variants'
+      }
+    ]
   },
   {
     label: this.t('navigation.suppliers'),
-    icon: 'pi pi-truck',
+    icon: 'fas fa-truck',
     routerLink: '/suppliers',
-    badge: '0',
-    badgeStyleClass: 'bg-gray-500 text-white'
+    badge: null
   },
   {
     label: this.t('navigation.customers'),
-    icon: 'pi pi-users',
+    icon: 'fas fa-users',
     routerLink: '/customers',
-    badge: '0',
-    badgeStyleClass: 'bg-gray-500 text-white'
+    badge: null
   },
   {
     label: this.t('navigation.purchases'),
-    icon: 'pi pi-shopping-cart',
+    icon: 'fas fa-shopping-cart',
     routerLink: '/purchases',
-    badge: '0',
-      icon: 'fas fa-home',
+    badge: null
   },
   {
     label: this.t('navigation.sales'),
-    icon: 'pi pi-dollar',
-      icon: 'fas fa-cube',
-      expanded: false,
-      items: [
-        {
-          label: this.t('navigation.products'),
-          icon: 'fas fa-list',
-          routerLink: '/products'
-        },
-        {
-          label: this.t('navigation.categories'),
-          icon: 'fas fa-tags',
-          routerLink: '/categories'
-        },
-        {
-          label: this.t('navigation.units'),
-          icon: 'fas fa-calculator',
-          routerLink: '/units'
-        },
-        {
-          label: this.t('navigation.variants'),
-          icon: 'fas fa-clone',
-          routerLink: '/variants'
-        }
-      ]
+    icon: 'fas fa-dollar-sign',
+    expanded: false,
+    items: [
+      {
+        label: this.t('navigation.sales'),
+        icon: 'fas fa-list',
+        routerLink: '/sales'
+      },
+      {
+        label: this.t('navigation.pos'),
+        icon: 'fas fa-cash-register',
+        routerLink: '/sales/pos'
+      }
+    ]
   },
   {
-    label: this.t('navigation.pos'),
-      icon: 'fas fa-truck',
-    routerLink: '/inventory',
-    badge: '0',
-      badge: null
+    label: this.t('navigation.inventory'),
+    icon: 'fas fa-warehouse',
+    expanded: false,
+    items: [
+      {
+        label: this.t('navigation.movements'),
+        icon: 'fas fa-exchange-alt',
+        routerLink: '/inventory/movements'
+      },
+      {
+        label: this.t('navigation.transfers'),
+        icon: 'fas fa-paper-plane',
+        routerLink: '/inventory/transfers'
+      },
+      {
+        label: this.t('navigation.adjustments'),
+        icon: 'fas fa-wrench',
+        routerLink: '/inventory/adjustments'
+      },
+      {
+        label: this.t('navigation.counts'),
+        icon: 'fas fa-clipboard-check',
+        routerLink: '/inventory/counts'
+      }
+    ]
   },
   {
     label: this.t('navigation.warehouses'),
-    icon: 'pi pi-building',
+    icon: 'fas fa-building',
     routerLink: '/warehouses',
-    badge: '0',
-      badge: null
+    badge: null
   },
-      icon: 'fas fa-users',
+  {
     label: this.t('navigation.returns'),
-    icon: 'pi pi-replay',
+    icon: 'fas fa-undo',
     routerLink: '/returns',
-    badge: '0',
-      icon: 'fas fa-shopping-cart',
-  },
-  {
-    label: this.t('navigation.reports'),
-    icon: 'pi pi-chart-bar',
-      icon: 'fas fa-dollar-sign',
-      expanded: false,
-      items: [
-        {
-          label: this.t('navigation.sales'),
-          icon: 'fas fa-list',
-          routerLink: '/sales'
-        },
-        {
-          label: this.t('navigation.pos'),
-          icon: 'fas fa-cash-register',
-          routerLink: '/sales/pos'
-        }
-      ]
-  },
-  {
-    label: this.t('navigation.settings'),
-      icon: 'fas fa-warehouse',
-    routerLink: '/settings',
-      expanded: false,
-      items: [
-        {
-          label: this.t('navigation.movements'),
-          icon: 'fas fa-exchange-alt',
-          routerLink: '/inventory/movements'
-        },
-        {
-          label: this.t('navigation.transfers'),
-          icon: 'fas fa-paper-plane',
-          routerLink: '/inventory/transfers'
-        },
-      icon: 'fas fa-undo',
-          label: this.t('navigation.adjustments'),
-          icon: 'fas fa-wrench',
-          routerLink: '/inventory/adjustments'
-        },
-      icon: 'fas fa-exclamation-triangle',
-          label: this.t('navigation.counts'),
-          icon: 'fas fa-clipboard-check',
-          routerLink: '/inventory/counts'
-        }
-      icon: 'fas fa-chart-bar',
+    badge: null
   },
   {
     label: this.t('navigation.damages'),
-      icon: 'fas fa-building',
-      icon: 'fas fa-cog',
+    icon: 'fas fa-exclamation-triangle',
+    routerLink: '/damages',
+    badge: null
+  },
+  {
+    label: this.t('navigation.reports'),
+    icon: 'fas fa-chart-bar',
+    routerLink: '/reports',
+    badge: null
+  },
+  {
+    label: this.t('navigation.settings'),
+    icon: 'fas fa-cog',
+    routerLink: '/settings',
     badge: null
   },
   {
     label: this.t('navigation.notifications'),
-      icon: 'fas fa-bell',
+    icon: 'fas fa-bell',
     routerLink: '/notifications',
     badge: '3'
   }
@@ -439,8 +422,32 @@ export class ShellComponent implements OnInit {
     });
   }
 
+  toggleSidebar() {
+    this.sidebarVisible.set(!this.sidebarVisible());
+  }
+
   toggleSubmenu(item: any) {
     item.expanded = !item.expanded;
+  }
+
+  toggleLanguage() {
+    // Implementation for language toggle
+  }
+
+  toggleTheme() {
+    this.themeService.toggleTheme();
+  }
+
+  performSearch() {
+    // Implementation for search
+  }
+
+  navigateTo(route: string) {
+    this.router.navigate([route]);
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
   t(key: string): string {
