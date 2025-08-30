@@ -161,7 +161,7 @@ import { StockTransfer, TransferStatus } from '../../../core/models/stock.model'
             <div>
               <label class="block text-sm font-medium mb-2">Entrepôt source</label>
               <p-dropdown 
-                [(ngModel)]="newTransfer.sourceWarehouseId"
+                [(ngModel)]="newTransfer().sourceWarehouseId"
                 [options]="warehouseOptions"
                 placeholder="Sélectionner"
                 optionLabel="label"
@@ -172,7 +172,7 @@ import { StockTransfer, TransferStatus } from '../../../core/models/stock.model'
             <div>
               <label class="block text-sm font-medium mb-2">Entrepôt destination</label>
               <p-dropdown 
-                [(ngModel)]="newTransfer.destinationWarehouseId"
+                [(ngModel)]="newTransfer().destinationWarehouseId"
                 [options]="warehouseOptions"
                 placeholder="Sélectionner"
                 optionLabel="label"
@@ -185,7 +185,7 @@ import { StockTransfer, TransferStatus } from '../../../core/models/stock.model'
             <label class="block text-sm font-medium mb-2">Notes</label>
             <textarea 
               pInputTextarea 
-              [(ngModel)]="newTransfer.notes"
+              [(ngModel)]="newTransfer().notes"
               rows="3"
               class="w-full">
             </textarea>

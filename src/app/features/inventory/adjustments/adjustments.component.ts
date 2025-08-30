@@ -154,7 +154,7 @@ import { StockAdjustment, AdjustmentType } from '../../../core/models/stock.mode
             <div>
               <label class="block text-sm font-medium mb-2">Type d'ajustement</label>
               <p-dropdown 
-                [(ngModel)]="newAdjustment.type"
+                [(ngModel)]="newAdjustment().type"
                 [options]="typeOptions"
                 placeholder="Sélectionner"
                 optionLabel="label"
@@ -165,7 +165,7 @@ import { StockAdjustment, AdjustmentType } from '../../../core/models/stock.mode
             <div>
               <label class="block text-sm font-medium mb-2">Entrepôt</label>
               <p-dropdown 
-                [(ngModel)]="newAdjustment.warehouseId"
+                [(ngModel)]="newAdjustment().warehouseId"
                 [options]="warehouseOptions"
                 placeholder="Sélectionner"
                 optionLabel="label"
@@ -179,7 +179,7 @@ import { StockAdjustment, AdjustmentType } from '../../../core/models/stock.mode
             <input 
               type="text" 
               pInputText 
-              [(ngModel)]="newAdjustment.reason"
+              [(ngModel)]="newAdjustment().reason"
               placeholder="Motif de l'ajustement"
               class="w-full">
           </div>
@@ -187,7 +187,7 @@ import { StockAdjustment, AdjustmentType } from '../../../core/models/stock.mode
             <label class="block text-sm font-medium mb-2">Notes</label>
             <textarea 
               pInputTextarea 
-              [(ngModel)]="newAdjustment.notes"
+              [(ngModel)]="newAdjustment().notes"
               rows="3"
               class="w-full">
             </textarea>

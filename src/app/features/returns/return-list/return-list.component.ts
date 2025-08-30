@@ -55,13 +55,13 @@ export enum ReturnStatus {
           <p-button 
             label="Retour client" 
             icon="pi pi-replay"
-            (onClick)="showNewReturnDialog.set(true); newReturn.update(r => ({...r, type: 'sale_return'}))">
+            (onClick)="openSaleReturnDialog()">
           </p-button>
           <p-button 
             label="Retour fournisseur" 
             icon="pi pi-undo"
             severity="secondary"
-            (onClick)="showNewReturnDialog.set(true); newReturn.update(r => ({...r, type: 'purchase_return'}))">
+            (onClick)="openPurchaseReturnDialog()">
           </p-button>
         </div>
       </div>
@@ -187,7 +187,7 @@ export enum ReturnStatus {
                 type="text" 
                 pInputText 
                 [(ngModel)]="newReturn().originalReference"
-                [placeholder]="newReturn().type === 'sale_return' ? 'N° de vente (SO-YYYY-####)' : 'N° d\'achat (PO-YYYY-####)'"
+                [placeholder]="getOriginalReferencePlaceholder()"
                 class="w-full">
             </span>
           </div>
@@ -273,6 +273,32 @@ export class ReturnListComponent implements OnInit {
 
   t(key: string): string {
     return this.translationService.t(key);
+  }
+
+  openSaleReturnDialog() {
+    this.newReturn.set({
+      type: 'sale_return',
+      originalReference: '',
+      reason: '',
+      notes: ''
+    });
+    this.showNewReturnDialog.set(true);
+  }
+
+  openPurchaseReturnDialog() {
+    this.newReturn.set({
+      type: 'purchase_return',
+      originalReference: '',
+      reason: '',
+      notes: ''
+    });
+    this.showNewReturnDialog.set(true);
+  }
+
+  getOriginalReferencePlaceholder(): string {
+    return this.newReturn().type === 'sale_return' 
+      ? 'N° de vente (SO-YYYY-####)' 
+      : 'N° d\'achat (PO-YYYY-####)';
   }
 
   getTypeLabel(type: ReturnType): string {

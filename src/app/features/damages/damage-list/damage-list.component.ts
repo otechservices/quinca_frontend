@@ -205,7 +205,7 @@ export enum DamageStatus {
             <div>
               <label class="block text-sm font-medium mb-2">Type de perte</label>
               <p-dropdown 
-                [(ngModel)]="newDamage.type"
+                [(ngModel)]="newDamage().type"
                 [options]="typeOptions"
                 placeholder="Sélectionner"
                 optionLabel="label"
@@ -216,7 +216,7 @@ export enum DamageStatus {
             <div>
               <label class="block text-sm font-medium mb-2">Entrepôt</label>
               <p-dropdown 
-                [(ngModel)]="newDamage.warehouseId"
+                [(ngModel)]="newDamage().warehouseId"
                 [options]="warehouseOptions"
                 placeholder="Sélectionner"
                 optionLabel="label"
@@ -232,7 +232,7 @@ export enum DamageStatus {
               <input 
                 type="text" 
                 pInputText 
-                [(ngModel)]="newDamage.productSearch"
+                [(ngModel)]="newDamage().productSearch"
                 placeholder="Rechercher un produit..."
                 class="w-full">
             </span>
@@ -240,7 +240,7 @@ export enum DamageStatus {
           <div>
             <label class="block text-sm font-medium mb-2">Quantité perdue</label>
             <p-inputNumber 
-              [(ngModel)]="newDamage.quantity"
+              [(ngModel)]="newDamage().quantity"
               [min]="1"
               class="w-full">
             </p-inputNumber>
@@ -249,7 +249,7 @@ export enum DamageStatus {
             <label class="block text-sm font-medium mb-2">Description</label>
             <textarea 
               pInputTextarea 
-              [(ngModel)]="newDamage.description"
+              [(ngModel)]="newDamage().description"
               rows="3"
               placeholder="Décrivez les circonstances..."
               class="w-full">
