@@ -453,8 +453,18 @@ export class ShellComponent implements OnInit {
     this.authService.logout();
   }
 
-  toggleSubmenu(item: any) {
-    item.expanded = !item.expanded;
+  toggleSubmenu(itemLabel: string) {
+    const expanded = this.expandedMenuItems();
+    if (expanded.has(itemLabel)) {
+      expanded.delete(itemLabel);
+    } else {
+      expanded.add(itemLabel);
+    }
+    this.expandedMenuItems.set(new Set(expanded));
+  }
+
+  isMenuExpanded(itemLabel: string): boolean {
+    return this.expandedMenuItems().has(itemLabel);
   }
 
   t(key: string): string {
