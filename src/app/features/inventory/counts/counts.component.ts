@@ -170,7 +170,6 @@ import { StockCount, CountStatus } from '../../../core/models/stock.model';
             <label class="block text-sm font-medium mb-2">Entrepôt</label>
             <p-dropdown 
               [(ngModel)]="newCount.warehouseId"
-              [(ngModel)]="newCount().warehouseId"
               [options]="warehouseOptions"
               placeholder="Sélectionner un entrepôt"
               optionLabel="label"
@@ -184,7 +183,6 @@ import { StockCount, CountStatus } from '../../../core/models/stock.model';
               type="date" 
               pInputText 
               [(ngModel)]="newCount.startDate"
-              [(ngModel)]="newCount().startDate"
               class="w-full">
           </div>
           <div>
@@ -192,7 +190,6 @@ import { StockCount, CountStatus } from '../../../core/models/stock.model';
             <textarea 
               pInputTextarea 
               [(ngModel)]="newCount.notes"
-              [(ngModel)]="newCount().notes"
               rows="3"
               placeholder="Notes sur cet inventaire..."
               class="w-full">

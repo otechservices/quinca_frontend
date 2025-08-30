@@ -179,7 +179,7 @@ export enum ReturnStatus {
         <div class="space-y-4">
           <div>
             <label class="block text-sm font-medium mb-2">
-              {{ newReturn().type === 'sale_return' ? 'Vente d&apos;origine' : 'Achat d&apos;origine' }}
+              {{ getOriginalReferenceLabel() }}
             </label>
             <span class="p-input-icon-left w-full">
               <i class="pi pi-search"></i>
@@ -343,6 +343,12 @@ export class ReturnListComponent implements OnInit {
       reason: '',
       notes: ''
     });
+  }
+
+  getOriginalReferenceLabel(): string {
+    return this.newReturn().type === 'sale_return' 
+      ? 'Vente d\'origine' 
+      : 'Achat d\'origine';
   }
 
   private loadReturns() {
